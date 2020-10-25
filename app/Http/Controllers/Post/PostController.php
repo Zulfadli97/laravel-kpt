@@ -21,6 +21,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        $this->authorize('view', $post);
+
         return view('post.show', compact('post'));
     }
 
@@ -37,6 +39,9 @@ class PostController extends Controller
     public function update($id, StorePostRequest $request)
     {
         $post = Post::find($id);
+
+        $this->authorize('view', $post);
+
         $post->title = $request->title;
         $post->body = $request->body;
         $post->update();

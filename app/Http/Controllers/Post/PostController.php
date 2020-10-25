@@ -18,9 +18,8 @@ class PostController extends Controller
     {
         return view('post.create');
     }
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::find($id);
         $this->authorize('view', $post);
 
         return view('post.show', compact('post'));
@@ -36,10 +35,8 @@ class PostController extends Controller
         return redirect(route('post.index'))->with('status', 'Data Inserted');
     }
 
-    public function update($id, StorePostRequest $request)
+    public function update(Post $post, StorePostRequest $request)
     {
-        $post = Post::find($id);
-
         $this->authorize('view', $post);
 
         $post->title = $request->title;
@@ -48,9 +45,9 @@ class PostController extends Controller
         return redirect(route('post.index'))->with('status', 'Data updated');
     }
 
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $post = Post::find($id)->delete();
+        $post->delete();
         return redirect(route('post.index'))->with('status', 'Data deleted');
     }
 }

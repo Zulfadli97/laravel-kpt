@@ -22,6 +22,7 @@
                             <th scope="col">Title</th>
                             <th scope="col">Body</th>
                             <th scope="col">Creator</th>
+                            <th scope="col">Attachment</th>
                             <th scope="col"></th>
                           </tr>
                         </thead>
@@ -32,6 +33,13 @@
                             <th scope="row">{{ $item->title }}</th>
                             <td>{{ $item->body }}</td>
                             <td>{{ $item->user->name }}</td>
+                            <td>
+                                @if($item->attachment)
+                                  <a class="btn btn-success" download href="{{ asset('storage/'.$item->attachment) }}">Download</a>
+                                @else
+                                  no attachment
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{ route('post.show',$item->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                 <a href="{{ route('post.destroy',$item->id) }}" class="btn btn-sm btn-danger">Delete</a>

@@ -79,7 +79,15 @@ class PostController extends Controller
 
     public function destroy($id)
     {
-        $post = Post::find($id)->delete();
+        $post = Post::find($id);
+
+        if ($post->attachment != null) {
+            // delete from storage
+            Storage::disk('public')->delete($post->attachment);
+        }
+
+        $post->delete();
+        
         return redirect(route('post.index'))->with('status', 'Data deleted');
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form action="{{ route('post.store') }}" method="post">
+    <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
         @csrf
     <div class="row">
         <div class="col-12">
@@ -15,6 +15,12 @@
             <label for="Body" class="mt-4">Body</label>
             <textarea name="body" class="form-control @error('body') is-invalid @enderror" id="body" cols="30" rows="10">{{ old('body') }}</textarea>
             @error('body')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <label class="mt-4">Attachment</label>
+            <input type="file" class="form-control" name="attachment">
+            @error('attachment')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 

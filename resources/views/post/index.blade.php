@@ -36,6 +36,7 @@
                             <td>
                                 @if($item->attachment)
                                   <a class="btn btn-success" download href="{{ asset('storage/'.$item->attachment) }}">Download</a>
+                                  <a class="btn btn-light" target="_blank" href="{{ asset('storage/'.$item->attachment) }}">View</a>
                                 @else
                                   no attachment
                                 @endif

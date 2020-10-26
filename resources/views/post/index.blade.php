@@ -27,23 +27,22 @@
                           </tr>
                         </thead>
                         <tbody>
-                        @foreach ($collection as $item)
-
+                        @foreach ($collection as $post)
                           <tr>
-                            <th scope="row">{{ $item->title }}</th>
-                            <td>{{ $item->body }}</td>
-                            <td>{{ $item->user->name }}</td>
+                            <th scope="row">{{ $post->title }}</th>
+                            <td>{{ $post->body }}</td>
+                            <td>{{ $post->user->name }}</td>
                             <td>
-                                @if($item->attachment)
-                                  <a class="btn btn-success" download href="{{ $item->attachment_url }}">Download</a>
-                                  <a class="btn btn-light" target="_blank" href="{{ asset('storage/'.$item->attachment) }}">View</a>
+                                @if($post->attachment)
+                                  <a class="btn btn-success" download href="{{ $post->attachment_url }}">Download</a>
+                                  <a class="btn btn-light" target="_blank" href="{{ asset('storage/'.$post->attachment) }}">View</a>
                                 @else
                                   no attachment
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('post.show',$item->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                                <a href="{{ route('post.destroy',$item->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                <a href="{{ route('post.show',$post->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                <a href="{{ route('post.destroy',$post->id) }}" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                           </tr>
 

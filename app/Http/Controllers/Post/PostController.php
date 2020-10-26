@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 // use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
+use Storage;
+use File;
 
 class PostController extends Controller
 {
@@ -43,6 +45,19 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->user_id = auth()->user()->id;
         $post->save();
+
+        if ($request->hasFile('attachment')) {
+            // rename 24-2020-10-26.jpg
+            $filename = $post->id.'-'.date("Y-m-d").'.'.$request->attachment->getClientOriginalExtension();
+
+            // store dekat storage
+            Storage::disk('public')->put($filename, File::get($request->attachment));
+
+            // update row with attachment name
+            // POPO - plain old php object
+            $post->attachment = $filename;
+            $post->save();
+        }
         return redirect(route('post.index'))->with('status', 'Data Inserted');
     }
 

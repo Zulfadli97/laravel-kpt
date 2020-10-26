@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -27,15 +28,15 @@ class PostController extends Controller
         return view('post.show', compact('post'));
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $this->validate(
-            $request,
-            [
-                'title' => 'required',
-                'body' => 'required'
-            ]
-        );
+        // $this->validate(
+        //     $request,
+        //     [
+        //         'title' => 'required',
+        //         'body' => 'required'
+        //     ]
+        // );
 
         $post = new Post;
         $post->title = $request->title;
@@ -45,15 +46,15 @@ class PostController extends Controller
         return redirect(route('post.index'))->with('status', 'Data Inserted');
     }
 
-    public function update($id, Request $request)
+    public function update($id, StorePostRequest $request)
     {
-        $this->validate(
-            $request,
-            [
-                'title' => 'required',
-                'body' => 'required'
-            ]
-        );
+        // $this->validate(
+        //     $request,
+        //     [
+        //         'title' => 'required',
+        //         'body' => 'required'
+        //     ]
+        // );
         $post = Post::find($id);
         $post->title = $request->title;
         $post->body = $request->body;

@@ -24,8 +24,8 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'body' => 'required'
+            'title' => 'required|min:5',
+            'body' => 'required|min:10'
         ];
     }
 
@@ -33,7 +33,8 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title.required' => 'Sila isi tajuk',
-            'body.required' => 'Sila isi kandungan'
+            'body.required' => 'Sila isi kandungan',
+            'title.min' => 'Minimum 5'
         ];
     }
 }

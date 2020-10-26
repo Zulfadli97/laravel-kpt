@@ -22,4 +22,10 @@ class Post extends Model
     {
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
+
+    //getter $post->attachment_url
+    public function getAttachmentUrlAttribute()
+    {
+        return asset('storage/'.$this->attachment);
+    }
 }

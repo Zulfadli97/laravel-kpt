@@ -25,7 +25,8 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5',
-            'body' => 'required|min:10'
+            'body' => 'required|min:10',
+            'attachment' => 'mimes:pdf'
         ];
     }
 

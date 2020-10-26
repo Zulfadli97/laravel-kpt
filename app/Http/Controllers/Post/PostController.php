@@ -11,6 +11,8 @@ class PostController extends Controller
     public function index()
     {
         $collection = Post::where('user_id', auth()->user()->id)->paginate();
+
+        // resources/views/post/index.blade.php - $collection
         return view('post.index', compact('collection'));
     }
     public function create()

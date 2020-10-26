@@ -21,6 +21,7 @@
                           <tr>
                             <th scope="col">Title</th>
                             <th scope="col">Body</th>
+                            <th scope="col">Creator</th>
                             <th scope="col"></th>
                           </tr>
                         </thead>
@@ -30,6 +31,7 @@
                           <tr>
                             <th scope="row">{{ $item->title }}</th>
                             <td>{{ $item->body }}</td>
+                            <td>{{ $item->user->name }}</td>
                             <td>
                                 <a href="{{ route('post.show',$item->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                 <a href="{{ route('post.destroy',$item->id) }}" class="btn btn-sm btn-danger">Delete</a>

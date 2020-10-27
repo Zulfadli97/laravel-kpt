@@ -20,10 +20,10 @@ class PostController extends Controller
             $search = $request->keyword;
             $collection = $user->posts()
                             ->where('title', 'LIKE', '%'.$search.'%')
-                            ->paginate();
+                            ->paginate(1);
         } else {
             //$collection = Post::where('user_id', auth()->user()->id)->paginate();
-            $collection = $user->posts()->paginate();
+            $collection = $user->posts()->paginate(1);
         }
 
         // resources/views/post/index.blade.php - $collection

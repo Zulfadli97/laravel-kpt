@@ -64,7 +64,11 @@
                         </tbody>
                       </table>
 
-                      {{ $collection->links() }}
+                      {{ $collection->appends(
+                        [
+                          'keyword' => request()->get('keyword')
+                        ]
+                      )->links() }}
                 </div>
             </div>
         </div>

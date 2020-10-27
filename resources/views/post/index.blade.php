@@ -41,7 +41,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                        @foreach ($collection as $post)
+                        @forelse ($collection as $post)
                           <tr>
                             <th scope="row">{{ $post->title }}</th>
                             <td>{{ $post->body }}</td>
@@ -59,8 +59,11 @@
                                 <a href="{{ route('post.destroy',$post->id) }}" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                           </tr>
-
-                        @endforeach
+                        @empty
+                          <tr>
+                              <h4>No record found.</h4>
+                          </tr>
+                        @endforelse
                         </tbody>
                       </table>
 

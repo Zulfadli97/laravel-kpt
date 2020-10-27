@@ -17,14 +17,14 @@
                     <form action="{{ route('post.index') }}" method="GET">
                       <label>Please input keyword</label>
                       <div class="input-group">
-                        <input type="text" name="keyword" placeholder="Search" class="form-control">
+                        <input type="text" name="keyword" placeholder="Search" class="form-control" value="{{ request()->get('keyword') }}">
 
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="submit">Search</button>
                         </div>
                       </div>
                     </form>
-                    
+
                     <br>
                     <hr>
 

@@ -14,7 +14,8 @@ class Post extends Model
     protected $fillable = [
         'title',
         'body',
-        'user_id'
+        'user_id',
+        'attachment'
     ];
 
     //relationships one to many

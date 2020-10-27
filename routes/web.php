@@ -31,4 +31,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/posts/{post}', [App\Http\Controllers\Post\PostController::class, 'show'])->name('post.show');
     Route::post('/posts/{post}/update', [App\Http\Controllers\Post\PostController::class, 'update'])->name('post.update');
     Route::get('/posts/{post}/delete', [App\Http\Controllers\Post\PostController::class, 'destroy'])->name('post.destroy')->middleware('password.confirm');
+
+    Route::get('/posts/{post}/force-delete', [App\Http\Controllers\Post\PostController::class, 'forceDelete'])->name('post.force-delete')->middleware('password.confirm');
 });

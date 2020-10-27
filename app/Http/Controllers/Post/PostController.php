@@ -119,4 +119,11 @@ class PostController extends Controller
         
         return redirect(route('post.index'))->with('status', 'Data deleted');
     }
+
+    public function forceDelete(Post $post)
+    {
+        $post->forceDelete();
+
+        return redirect(route('post.index'))->with('status', 'Data deleted on row');
+    }
 }

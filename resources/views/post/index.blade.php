@@ -57,6 +57,9 @@
                             <td>
                                 <a href="{{ route('post.show',$post->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                 <a href="{{ route('post.destroy',$post->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                
+                                <a href="{{ route('post.force-delete',$post->id) }}" class="btn btn-lg btn-danger">Force Delete</a>
+
                             </td>
                           </tr>
                         @empty

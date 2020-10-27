@@ -33,9 +33,9 @@ class PostController extends Controller
     {
         return view('post.create');
     }
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::find($id);
+        // $post = Post::find($id);
 
         $this->authorize('view', $post);
 
@@ -73,7 +73,7 @@ class PostController extends Controller
         return redirect(route('post.index'))->with('status', 'Data Inserted');
     }
 
-    public function update($id, StorePostRequest $request)
+    public function update(Post $post, StorePostRequest $request)
     {
         // $this->validate(
         //     $request,
@@ -82,16 +82,16 @@ class PostController extends Controller
         //         'body' => 'required'
         //     ]
         // );
-        $post = Post::find($id);
+        // $post = Post::find($id);
         $post->title = $request->title;
         $post->body = $request->body;
         $post->update();
         return redirect(route('post.index'))->with('status', 'Data updated');
     }
 
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $post = Post::find($id);
+        // $post = Post::find($id);
 
         if ($post->attachment != null) {
             // delete from storage

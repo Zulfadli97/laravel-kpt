@@ -30,7 +30,7 @@
 
                     <a href="{{ route('post.create') }}" class="btn btn-primary mb-4 float-right">Create New Post</a>
 
-                    <table class="table">
+                    <table class="table table-responsive">
                         <thead class="thead-dark">
                           <tr>
                             <th scope="col">Title</th>
@@ -57,7 +57,7 @@
                             <td>
                                 <a href="{{ route('post.show',$post->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                 <a href="{{ route('post.destroy',$post->id) }}" class="btn btn-sm btn-danger">Delete</a>
-                                
+
                                 <a href="{{ route('post.force-delete',$post->id) }}" class="btn btn-lg btn-danger">Force Delete</a>
 
                             </td>

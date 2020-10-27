@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/testing/login', [App\Http\Controllers\LoginController::class, 'login'])->name('test.login');
+
 
 //posts routes with guarded auth
 

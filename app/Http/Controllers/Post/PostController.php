@@ -52,11 +52,18 @@ class PostController extends Controller
         //     ]
         // );
 
-        $post = new Post;
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->user_id = auth()->user()->id;
-        $post->save();
+
+        // Method 1- POPO - Plain Old Php Object
+        // $post = new Post;
+        // $post->title = $request->title;
+        // $post->body = $request->body;
+        // $post->user_id = auth()->user()->id;
+        // $post->save();
+
+        // Method 2 - Mass Assignment(fillable) + relationship
+        $user = auth()->user();
+        $post = $user->posts()->create($request->only('title', 'body'));
+
 
         if ($request->hasFile('attachment')) {
             // rename 24-2020-10-26.jpg
@@ -66,9 +73,13 @@ class PostController extends Controller
             Storage::disk('public')->put($filename, File::get($request->attachment));
 
             // update row with attachment name
+
             // POPO - plain old php object
-            $post->attachment = $filename;
-            $post->save();
+            // $post->attachment = $filename;
+            // $post->save();
+            
+            // Mass Assignment
+            $post->update(['attachment' => $filename]);
         }
         return redirect(route('post.index'))->with('status', 'Data Inserted');
     }
@@ -83,9 +94,15 @@ class PostController extends Controller
         //     ]
         // );
         // $post = Post::find($id);
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->update();
+
+        //Method 1
+        // $post->title = $request->title;
+        // $post->body = $request->body;
+        // $post->update();
+
+        //Method 2
+        $post->update($request->only('title', 'body'));
+        
         return redirect(route('post.index'))->with('status', 'Data updated');
     }
 

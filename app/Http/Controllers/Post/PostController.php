@@ -4,18 +4,27 @@ namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
 use Storage;
 use File;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        //$collection = Post::where('user_id', auth()->user()->id)->paginate();
         $user = auth()->user();
-        $collection = $user->posts()->paginate();
+
+        if ($request->keyword != null) {
+            // query all user post using keyword
+            $search = $request->keyword;
+            $collection = $user->posts()
+                            ->where('title', 'LIKE', '%'.$search.'%')
+                            ->paginate();
+        } else {
+            //$collection = Post::where('user_id', auth()->user()->id)->paginate();
+            $collection = $user->posts()->paginate();
+        }
 
         // resources/views/post/index.blade.php - $collection
         return view('post.index', compact('collection'));

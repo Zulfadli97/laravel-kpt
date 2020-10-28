@@ -31,10 +31,10 @@ class NewLoginController extends Controller
                     return redirect()->to('dashboard');
                 }
             } else {
-                return redirect()->to('new-login');
+                return redirect()->to('new-login')->with('status', 'Wrong Credentials. Please try again');
             }
         }
 
-        return redirect()->to('new-login');
+        return redirect()->to('new-login')->with('status', 'Wrong Credentials. Please sign up');
     }
 }

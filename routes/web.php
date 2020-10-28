@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // resources/views/welcome.blade.php
     return view('welcome');
 });
 
 Auth::routes();
+                // from       to        code
+Route::redirect('/login', '/new-login', 301);
 
 // KPT Home
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('user.group');

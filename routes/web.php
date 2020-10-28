@@ -20,7 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 // KPT Home
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('user.group');
 
 // IPT Dashboard
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');

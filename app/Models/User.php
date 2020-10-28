@@ -9,6 +9,16 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+
+    // define table - PRUSER -> default : users
+    protected $table = 'PRUSER';
+
+    // define primary key - USERID -> default : id
+    protected $primaryKey = 'USERID';
+
+    // set timestamps to false
+    public $timestamps = false;
+
     use HasFactory, Notifiable;
 
     /**

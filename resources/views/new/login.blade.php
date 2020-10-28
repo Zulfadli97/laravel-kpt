@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('New Login Using kaddebit DB') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ route('new-login:process') }}">
                         @csrf
 
                         <div class="form-group row">

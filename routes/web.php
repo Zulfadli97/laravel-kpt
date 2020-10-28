@@ -23,6 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // new login User Interface
 Route::get('/new-login', [App\Http\Controllers\NewLoginController::class,'loginInterface'])->name('new-login:ui');
+Route::post('/new-login', [App\Http\Controllers\NewLoginController::class,'loginProcess'])->name('new-login:process');
 
 //posts routes with guarded auth
 

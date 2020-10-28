@@ -19,7 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// KPT Home
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// IPT Dashboard
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
+
 
 // new login User Interface
 Route::get('/new-login', [App\Http\Controllers\NewLoginController::class,'loginInterface'])->name('new-login:ui');

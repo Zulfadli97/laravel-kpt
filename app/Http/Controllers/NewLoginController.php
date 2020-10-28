@@ -24,7 +24,12 @@ class NewLoginController extends Controller
         if ($user) {
             if (Hash::check($request->password, $user->USERPASSWORD)) {
                 Auth::login($user, false); // remember_token column
-                return redirect()->to('home');
+
+                if ($user->USERGROUPCODE == 'KPT') {
+                    return redirect()->to('home');
+                } else {
+                    return redirect()->to('dashboard');
+                }
             } else {
                 return redirect()->to('new-login');
             }

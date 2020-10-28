@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// new login User Interface
+Route::get('/new-login', [App\Http\Controllers\NewLoginController::class,'loginInterface'])->name('new-login:ui');
 
 //posts routes with guarded auth
 

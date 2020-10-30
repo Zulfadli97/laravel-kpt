@@ -49,3 +49,5 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'myProfile'])->name('my-profile');
 Route::post('/my-profile', [App\Http\Controllers\ProfileController::class, 'updateProfile'])->name('update-profile');
+
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');

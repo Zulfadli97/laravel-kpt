@@ -54,3 +54,6 @@ Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->nam
 
 Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('user.show');
 Route::post('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+
+
+Route::get('/pelajar', [App\Http\Controllers\PelajarController::class, 'index'])->name('pelajar.index');

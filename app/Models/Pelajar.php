@@ -15,6 +15,8 @@ class Pelajar extends Model
     // define primary key - USERID -> default : id
     protected $primaryKey = 'ID_Pelajar';
 
+    public $incrementing = true;
+
     // set timestamps to false
     public $timestamps = false;
 }

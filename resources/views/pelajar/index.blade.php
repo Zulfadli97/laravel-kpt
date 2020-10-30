@@ -11,6 +11,16 @@
                 </div>
 
                 <div class="card-body">
+                <form action="{{ route('pelajar.import-excel') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label>Add Bulk Pelajar</label>
+                        <input type="file" class="form-control" name="attachment">
+                    </div>
+                    <button type="submit" class="btn btn-primary form-control">Submit</button>
+                </form>
+                <hr>
+
                     <table class="table">
                         <tr>
                             <th>ID</th>

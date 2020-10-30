@@ -11,7 +11,9 @@
             @endif
             <div class="card">
                 <div class="card-header">{{ __('New Login Using kaddebit DB') }}</div>
-
+                <center>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/100x100_logo.png" alt="logo" width="100" height="100">
+                </center>
                 <div class="card-body">
                     <form method="POST" action="{{ route('new-login:process') }}">
                         @csrf

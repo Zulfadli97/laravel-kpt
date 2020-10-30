@@ -4,10 +4,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        
+            @if(session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-header">{{ __('My Profile') }}</div>
 
                 <div class="card-body">
+                <form action="{{ route('update-profile') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label>Name</label>
                         <input class="form-control" type="text" name="NAME" value="{{ $user->NAME }}">
@@ -33,7 +42,8 @@
                         <label>Telephone</label>
                         <input class="form-control" type="number" name="TELNO" value="{{ $user->TELNO }}">
                     </div>
-                   
+                    <button type="submit" class="btn btn-primary form-control">Update My Profile</button>
+                </form>
                 </div>
             </div>
         </div>

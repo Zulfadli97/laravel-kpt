@@ -13,12 +13,16 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Action</th>
                         </tr>
                         @foreach($users as $user)
                         <tr>
                             <td>{{ $user->USERID }}</td>
                             <td>{{ $user->NAME }}</td>
                             <td>{{ $user->EMAIL }}</td>
+                            <td>
+                                <a href="{{ route('user.show', $user) }}" class="btn btn-primary">Show</a>
+                            </td>
                         </tr>
                         @endforeach
                     </table>

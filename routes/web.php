@@ -51,3 +51,6 @@ Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'myPro
 Route::post('/my-profile', [App\Http\Controllers\ProfileController::class, 'updateProfile'])->name('update-profile');
 
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+
+Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('user.show');
+Route::post('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');

@@ -51,7 +51,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        // resources/views/user/show.blade.php
+        return view('user.show', compact('user'));
     }
 
     /**
@@ -74,7 +75,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->NAME = $request->NAME;
+        $user->USERGROUPCODE = $request->USERGROUPCODE;
+        $user->CREATEDDATE = $request->CREATEDDATE;
+        $user->NIRC = $request->NIRC;
+        $user->EMAIL = $request->EMAIL;
+        $user->TELNO = $request->TELNO;
+        $user->save();
+
+        // return to my profile
+        return redirect()->route('user.show', $user)->with('status', 'Successfully update your profile');
     }
 
     /**

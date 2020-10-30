@@ -5,9 +5,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Index for Users') }}</div>
+                <div class="card-header">
+                    {{ __('Index for Users') }}
+                    
+                </div>
 
                 <div class="card-body">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filter by Group
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{{ route('user.index', ['group' => 'KPT']) }}">KPT</a>
+                            <a class="dropdown-item" href="{{ route('user.index') }}">All</a>
+                        </div>
+                    </div>
+                    <hr>
                     <table class="table">
                         <tr>
                             <th>ID</th>

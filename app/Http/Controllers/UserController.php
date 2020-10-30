@@ -12,11 +12,16 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // query all user from db using model
-        $users = User::all();
-
+        if ($request->group == 'KPT') {
+            // query KPT users
+            $users = User::where('USERGROUPCODE', '=', 'KPT')->get();
+        } else {
+            // query all user from db using model
+            $users = User::all();
+        }
+        
         // return to viw with users
         //resources/views/user/index.blade.php
         return view('user.index', compact('users'));

@@ -45,3 +45,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/posts/{post}/force-delete', [App\Http\Controllers\Post\PostController::class, 'forceDelete'])->name('post.force-delete')->middleware('password.confirm');
 });
+
+
+Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'myProfile'])->name('my-profile');

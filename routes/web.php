@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('/contoh-main-theme', 'admin.layouts.main');
+
 Route::get('/', function () {
     // resources/views/welcome.blade.php
     return view('welcome');

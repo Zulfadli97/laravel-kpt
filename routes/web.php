@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// route to change locale, project.test/lang/en
+Route::get('/lang/{locale}', [App\Http\Controllers\LocalizationController::class, 'index'])->name('lang:locale');
+
 Auth::routes();
                 // from       to        code
 Route::redirect('/login', '/new-login', 301);

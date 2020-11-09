@@ -55,6 +55,10 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'myProfile'])->name('my-profile');
 Route::post('/my-profile', [App\Http\Controllers\ProfileController::class, 'updateProfile'])->name('update-profile');
 
+Route::get('/my-profile/password', [App\Http\Controllers\ProfileController::class, 'myProfilePassword'])->name('my-profile-password');
+Route::post('/my-profile/password', [App\Http\Controllers\ProfileController::class, 'updateProfilePassword'])->name('update-profile-password');
+
+
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
 
 Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('user.show');

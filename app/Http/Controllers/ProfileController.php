@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Storage;
+use File;
 
 class ProfileController extends Controller
 {
@@ -28,7 +30,30 @@ class ProfileController extends Controller
         $user->TELNO = $request->TELNO;
         $user->save();
 
+        if ($request->hasFile('profile_picture')) {
+            $filename = 'profile-picture-'.$user->USERID.'-'.date("Y-m-d").'.'.$request->profile_picture->getClientOriginalExtension();
+
+            Storage::disk('public')->put($filename, File::get($request->profile_picture));
+
+            $user->IMAGEFILE = $filename;
+            $user->save();
+        }
+
         // return to my profile
         return redirect()->to('my-profile')->with('status', 'Successfully update your profile');
+    }
+
+    public function myProfilePassword()
+    {
+        return view('profile.my-profile-password');
+    }
+
+    public function updateProfilePassword(Request $request)
+    {
+        $user = auth()->user();
+        $user->USERPASSWORD = bcrypt($request->password);
+        $user->save();
+
+        return redirect()->route('my-profile-password')->with('status', 'Successfully updating password');
     }
 }

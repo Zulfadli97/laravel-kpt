@@ -21,7 +21,7 @@
                         <div class="card-header">{{ __('My Profile') }}</div>
 
                         <div class="card-body">
-                        <form action="{{ route('update-profile') }}" method="POST">
+                        <form action="{{ route('update-profile') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Name</label>
@@ -48,6 +48,12 @@
                                 <label>Telephone</label>
                                 <input class="form-control" type="number" name="TELNO" value="{{ $user->TELNO }}">
                             </div>
+                            
+                            <div class="form-group">
+                                <label>Profile Picture/Avatar</label>
+                                <input type="file" class="form-control" name="profile_picture">
+                            </div>
+
                             <button type="submit" class="btn btn-primary form-control">Update My Profile</button>
                         </form>
                         </div>

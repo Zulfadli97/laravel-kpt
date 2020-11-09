@@ -13,7 +13,7 @@
         </a>
 
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+            <div class="sb-nav-link-icon"><i class="far fa-user"></i></div>
             Profile Management
             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>

@@ -33,7 +33,9 @@
                             <td>{{ $p->ID_Pelajar }}</td>
                             <td>{{ $p->Nama }}</td>
                             <td>{{ $p->NoKP }}</td>
-                            <td></td>
+                            <td>
+                                <a href="{{ route('pelajar.show', $p) }}" class="btn btn-info">Lihat</a>
+                            </td>
                         </tr>
                         @endforeach
                     </table>

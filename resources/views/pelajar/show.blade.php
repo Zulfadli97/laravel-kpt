@@ -45,7 +45,7 @@
                                     <option value="{{ $pelajar->Kod_IPT }}">{{ $pelajar->Kod_IPT }} (sekarang)</option>
                                     @foreach($senarai_ipt as $ipt)
                                         @if($pelajar->Kod_IPT != $ipt->KOD_IPT)
-                                            <option value="{{ $ipt->KOD_IPT }}">{{ $ipt->KOD_IPT }}</option>
+                                            <option value="{{ $ipt->KOD_IPT }}">{{ $ipt->NAMA_IPT }}</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -56,7 +56,7 @@
                                 <select name="Kod_Negeri_IPT" class="form-control">
                                     <option value="{{ $pelajar->Kod_Negeri_IPT }}"> {{ $pelajar->Kod_Negeri_IPT }} (sekarang)</option>
                                     @foreach($senarai_negeri as $negeri)
-                                        <option value="{{ $negeri->KOD_NEGERI }}"> {{ $negeri->KOD_NEGERI }} </option>
+                                        <option value="{{ $negeri->KOD_NEGERI }}"> {{ $negeri->NAMA_NEGERI }} </option>
                                     @endforeach
                                 </select>
                             </div>

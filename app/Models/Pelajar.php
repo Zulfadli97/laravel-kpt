@@ -19,4 +19,16 @@ class Pelajar extends Model
 
     // set timestamps to false
     public $timestamps = false;
+
+    // relationship satu pelajar belongsTo satu negeri
+    public function negeri()
+    {
+        // model , fk , pk
+        return $this->belongsTo('App\Models\Negeri', 'Kod_Negeri_IPT', 'KOD_NEGERI');
+    }
+
+    public function ipt()
+    {
+        return $this->belongsTo('App\Models\IPT', 'Kod_IPT', 'KOD_IPT');
+    }
 }

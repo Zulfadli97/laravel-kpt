@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pelajar;
+use App\Models\IPT;
 
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\BulkPelajarImport;
@@ -24,5 +25,15 @@ class PelajarController extends Controller
 
         // return to view
         return back();
+    }
+
+    public function show(Pelajar $pelajar)
+    {
+        // query all IPT
+        $senarai_ipt = IPT::all();
+        //dd($senarai_ipt);
+
+        // resources/views/pelajar/show.blade.php
+        return view('pelajar.show', compact(['pelajar', 'senarai_ipt']));
     }
 }

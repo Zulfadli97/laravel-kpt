@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pelajar;
 use App\Models\IPT;
+use App\Models\Negeri;
 
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\BulkPelajarImport;
@@ -33,7 +34,9 @@ class PelajarController extends Controller
         $senarai_ipt = IPT::all();
         //dd($senarai_ipt);
 
+        $senarai_negeri = Negeri::all();
+
         // resources/views/pelajar/show.blade.php
-        return view('pelajar.show', compact(['pelajar', 'senarai_ipt']));
+        return view('pelajar.show', compact(['pelajar', 'senarai_ipt', 'senarai_negeri']));
     }
 }

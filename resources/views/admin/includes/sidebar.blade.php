@@ -34,6 +34,12 @@
             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
             Pelajar
         </a>
+
+        <a class="nav-link" href="{{ route('negeri.senarai') }}">
+            <div class="sb-nav-link-icon"><i class="fas fa-flag"></i></div>
+            Senarai Negeri
+        </a>
+
     </div>
 </div>
 <div class="sb-sidenav-footer">

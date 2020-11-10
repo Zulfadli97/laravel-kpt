@@ -40,4 +40,30 @@ class NegeriController extends Controller
 
         return redirect()->back()->with('status', 'Berjaya mengemaskini data negeri');
     }
+
+    public function cipta()
+    {
+        return view('pengurusan.negeri.cipta');
+    }
+
+    public function simpan(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'KOD_NEGERI' => 'required|unique:NEGERI',
+                'NAMA_NEGERI' => 'required|min:5'
+            ],
+            [
+                'KOD_NEGERI.unique' => 'Sila pilih KOD NEGERI yang lain, rekod telah tercipta'
+            ]
+        );
+
+        $negeri = new Negeri();
+        $negeri->KOD_NEGERI = $request->KOD_NEGERI;
+        $negeri->NAMA_NEGERI = $request->NAMA_NEGERI;
+        $negeri->save();
+
+        return redirect()->route('negeri.senarai')->with('status', 'Rekod negeri berjaya disimpan');
+    }
 }

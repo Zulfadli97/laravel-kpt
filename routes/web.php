@@ -72,3 +72,6 @@ Route::post('/pelajar/import/excel', [App\Http\Controllers\PelajarController::cl
 Route::get('admin/negeri', [App\Http\Controllers\Pengurusan\NegeriController::class, 'senarai'])->name('negeri.senarai');
 Route::get('admin/negeri/{negeri}', [App\Http\Controllers\Pengurusan\NegeriController::class, 'lihat'])->name('negeri.lihat');
 Route::post('admin/negeri/{negeri}', [App\Http\Controllers\Pengurusan\NegeriController::class, 'kemaskini'])->name('negeri.kemaskini');
+
+Route::get('admin/cipta-negeri', [App\Http\Controllers\Pengurusan\NegeriController::class, 'cipta'])->name('negeri.cipta');
+Route::post('admin/cipta-negeri', [App\Http\Controllers\Pengurusan\NegeriController::class, 'simpan'])->name('negeri.simpan');

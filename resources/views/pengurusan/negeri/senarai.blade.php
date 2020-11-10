@@ -8,7 +8,12 @@
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">{{ __('Senarai Negeri') }}</div>
+                        <div class="card-header">
+                            {{ __('Senarai Negeri') }}
+                            <div class="float-right">
+                                <a href="{{ route('negeri.cipta') }}" class="btn btn-info">+ Cipta Negeri</a>
+                            </div>
+                        </div>
                         <div class="card-body">
                         <table class="table">
                                 <tr>

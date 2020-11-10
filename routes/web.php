@@ -70,3 +70,5 @@ Route::post('/pelajar/import/excel', [App\Http\Controllers\PelajarController::cl
 
 //     method ( uri , action )
 Route::get('admin/negeri', [App\Http\Controllers\Pengurusan\NegeriController::class, 'senarai'])->name('negeri.senarai');
+Route::get('admin/negeri/{negeri}', [App\Http\Controllers\Pengurusan\NegeriController::class, 'lihat'])->name('negeri.lihat');
+Route::post('admin/negeri/{negeri}', [App\Http\Controllers\Pengurusan\NegeriController::class, 'kemaskini'])->name('negeri.kemaskini');

@@ -15,12 +15,16 @@
                                     <th>ID</th>
                                     <th>Kod Negeri</th>
                                     <th>Nama Negeri</th>
+                                    <th>Tindakan</th>
                                 </tr>
                                 @foreach($senarai_negeri as $negeri)
                                     <tr>
                                         <td>{{ $negeri->ID }}</td>
                                         <td>{{ $negeri->KOD_NEGERI }}</td>
                                         <td>{{ $negeri->NAMA_NEGERI }}</td>
+                                        <td>
+                                            <a href="{{ route('negeri.lihat', $negeri) }}" class="btn btn-primary">Lihat</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </table>

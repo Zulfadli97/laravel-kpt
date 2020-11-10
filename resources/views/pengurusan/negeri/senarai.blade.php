@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">{{ __('My Profile') }}</div>
+                        <div class="card-header">{{ __('Senarai Negeri') }}</div>
                         <div class="card-body">
                         <table class="table">
                                 <tr>

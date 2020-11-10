@@ -67,3 +67,6 @@ Route::post('/users/{user}', [App\Http\Controllers\UserController::class, 'updat
 
 Route::get('/pelajar', [App\Http\Controllers\PelajarController::class, 'index'])->name('pelajar.index');
 Route::post('/pelajar/import/excel', [App\Http\Controllers\PelajarController::class, 'importExcel'])->name('pelajar.import-excel');
+
+//     method ( uri , action )
+Route::get('admin/negeri', [App\Http\Controllers\Pengurusan\NegeriController::class, 'senarai'])->name('negeri.senarai');

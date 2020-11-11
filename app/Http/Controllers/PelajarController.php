@@ -12,6 +12,11 @@ use App\Imports\BulkPelajarImport;
 
 class PelajarController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','user.group']);
+    }
+    
     public function index()
     {
         $pelajar = Pelajar::all();

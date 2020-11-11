@@ -30,3 +30,7 @@ and set
 MAIL_FROM_ADDRESS=tarmizi@mizi.my
 
 ```
+
+### For running Job
+
+    php artisan queue:listen

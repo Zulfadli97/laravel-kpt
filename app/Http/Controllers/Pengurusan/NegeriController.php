@@ -77,8 +77,10 @@ class NegeriController extends Controller
         // });
 
         // Method 2 - Send Using Mailable Class
-        Mail::to('tarmizisanusi@gmail.com')->send(new \App\Mail\NegeriCreatedMail($negeri));
+        // Mail::to('tarmizisanusi@gmail.com')->send(new \App\Mail\NegeriCreatedMail($negeri));
 
+        // Method 3 - Send Email using Job
+        dispatch(new \App\Jobs\SendEmailJob($negeri));
 
         return redirect()->route('negeri.senarai')->with('status', 'Rekod negeri berjaya disimpan');
     }

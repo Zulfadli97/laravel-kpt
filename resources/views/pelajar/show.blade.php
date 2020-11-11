@@ -25,7 +25,7 @@
                             @csrf
                             <div class="form-group">
                                 <label>NAMA</label>
-                                <input class="form-control" type="text" name="" value="{{ $pelajar->Nama }}">
+                                <input class="form-control" type="text" name="Nama" value="{{ $pelajar->Nama }}">
                                 @error('Nama')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -33,7 +33,7 @@
 
                             <div class="form-group">
                                 <label>NO KAD PENGENALAN</label>
-                                <input class="form-control" type="text" name="" value="{{ $pelajar->NoKP }}">
+                                <input class="form-control" type="text" name="NoKP" value="{{ $pelajar->NoKP }}">
                                 @error('NoKP')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -63,7 +63,7 @@
 
                             <div class="form-group">
                                 <label>Tarikh Data</label>
-                                <input class="form-control" type="date" name="" value="{{ $pelajar->Tarikh_Data }}">
+                                <input class="form-control" type="date" name="Tarikh_Data" value="{{ $pelajar->Tarikh_Data }}">
                                 @error('Tarikh_Data')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

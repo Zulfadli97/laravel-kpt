@@ -39,4 +39,15 @@ class PelajarController extends Controller
         // resources/views/pelajar/show.blade.php
         return view('pelajar.show', compact(['pelajar', 'senarai_ipt', 'senarai_negeri']));
     }
+
+    public function update(Pelajar $pelajar, Request $request)
+    {
+        $pelajar->Nama = $request->Nama;
+        $pelajar->NoKP = $request->NoKP;
+        $pelajar->Kod_IPT = $request->Kod_IPT;
+        $pelajar->Kod_Negeri_IPT  = $request->Kod_Negeri_IPT;
+        $pelajar->save();
+
+        return redirect()->back()->with('status', 'Berjaya kemaskini data pelajar');
+    }
 }

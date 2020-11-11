@@ -67,14 +67,17 @@ class NegeriController extends Controller
 
         // notify : send email to tarmizisanusi@gmail.com
         // email template email.create-negeri-email
-        Mail::send('email.create-negeri-email', [
-            'nama' => $negeri->NAMA_NEGERI,
-            'kod' => $negeri->KOD_NEGERI
-        ], function ($message) {
-            $message->from('tarmizi@mizi.my');
-            $message->to('tarmizisanusi@gmail.com');
-            $message->subject('Negeri Baru Dicipta');
-        });
+        // Mail::send('email.create-negeri-email', [
+        //     'nama' => $negeri->NAMA_NEGERI,
+        //     'kod' => $negeri->KOD_NEGERI
+        // ], function ($message) {
+        //     $message->from('tarmizi@mizi.my');
+        //     $message->to('tarmizisanusi@gmail.com');
+        //     $message->subject('Negeri Baru Dicipta');
+        // });
+
+        // Method 2 - Send Using Mailable Class
+        Mail::to('tarmizisanusi@gmail.com')->send(new \App\Mail\NegeriCreatedMail($negeri));
 
 
         return redirect()->route('negeri.senarai')->with('status', 'Rekod negeri berjaya disimpan');

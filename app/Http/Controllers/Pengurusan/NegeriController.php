@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pengurusan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Negeri;
+use Mail;
 
 class NegeriController extends Controller
 {
@@ -63,6 +64,18 @@ class NegeriController extends Controller
         $negeri->KOD_NEGERI = $request->KOD_NEGERI;
         $negeri->NAMA_NEGERI = $request->NAMA_NEGERI;
         $negeri->save();
+
+        // notify : send email to tarmizisanusi@gmail.com
+        // email template email.create-negeri-email
+        Mail::send('email.create-negeri-email', [
+            'nama' => $negeri->NAMA_NEGERI,
+            'kod' => $negeri->KOD_NEGERI
+        ], function ($message) {
+            $message->from('tarmizi@mizi.my');
+            $message->to('tarmizisanusi@gmail.com');
+            $message->subject('Negeri Baru Dicipta');
+        });
+
 
         return redirect()->route('negeri.senarai')->with('status', 'Rekod negeri berjaya disimpan');
     }

@@ -78,3 +78,13 @@ Route::post('admin/negeri/{negeri}', [App\Http\Controllers\Pengurusan\NegeriCont
 
 Route::get('admin/cipta-negeri', [App\Http\Controllers\Pengurusan\NegeriController::class, 'cipta'])->name('negeri.cipta');
 Route::post('admin/cipta-negeri', [App\Http\Controllers\Pengurusan\NegeriController::class, 'simpan'])->name('negeri.simpan');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('staff/pendaftaran', [App\Http\Controllers\ClientController::class, 'pendaftaran'])->name('pendaftaran');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
